@@ -1,0 +1,96 @@
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-color: #f4f7fa;
+}
+
+.employee-form {
+	background: #ffffff;
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 500px;
+}
+
+.address-group {
+	border: 1px solid #dedede;
+	padding: 15px;
+	margin-bottom: 1rem;
+	border-radius: 8px;
+}
+
+.form-section-title {
+	margin-bottom: 2rem;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.form-header {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.form-header h1,
+.form-header a {
+	margin-bottom: 1rem;
+}
+
+.form-label {
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 0.5rem;
+}
+
+.form-section-title {
+	font-size: 1.2rem;
+}
+
+.form-input {
+	width: 20rem;
+
+	display: block;
+	padding: 0.5rem;
+	margin-bottom: 1rem;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+}
+
+.form-select {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.btn {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+.form-button {
+	padding: 0.5rem 1rem;
+	background-color: #007bff;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.form-button:hover {
+	background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+	.employee-form {
+		padding: 1rem;
+		width: 90%;
+	}
+}
