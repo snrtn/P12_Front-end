@@ -54,7 +54,6 @@
 
 .form-input {
 	width: 20rem;
-
 	display: block;
 	padding: 0.5rem;
 	margin-bottom: 1rem;
@@ -86,6 +85,15 @@
 
 .form-button:hover {
 	background-color: #0056b3;
+}
+
+.input-error {
+	border-color: #ff0000;
+}
+
+.error-message {
+	color: #ff0000;
+	margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {

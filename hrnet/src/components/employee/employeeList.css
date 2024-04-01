@@ -1,0 +1,97 @@
+.employee-list-container {
+	width: 900px;
+	margin: 20px auto;
+	font-family: Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.title {
+	font-size: 24px;
+	color: #333;
+	padding: 50px 0;
+}
+
+.controls {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.search-box input,
+.entries-select select {
+	padding: 5px;
+	margin-left: 5px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+th,
+td {
+	border: 1px solid #dddddd;
+	padding: 8px;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.table-bottom {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.pagination button {
+	padding: 5px 10px;
+	margin-left: 5px;
+	cursor: pointer;
+	background: white;
+	border: 1px solid #dddddd;
+}
+
+.pagination button:disabled {
+	cursor: not-allowed;
+}
+
+.home-button {
+	cursor: pointer;
+	padding: 5px 10px;
+	background: white;
+	border: 1px solid #dddddd;
+	margin-left: 5px;
+	margin-top: 40px;
+}
+
+.table-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10px;
+}
+
+@media (max-width: 920px) {
+	.employee-list-container {
+		width: 100%;
+		margin: 10px;
+	}
+}

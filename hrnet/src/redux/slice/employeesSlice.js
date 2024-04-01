@@ -1,23 +1,19 @@
+// employeeSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
-export const employeesSlice = createSlice({
-	name: 'employees',
+export const employeeSlice = createSlice({
+	name: 'employee',
 	initialState: {
-		list: [],
-		error: null,
+		employeesList: JSON.parse(localStorage.getItem('employees')) || [],
 	},
 	reducers: {
 		addEmployee: (state, action) => {
-			state.list.push(action.payload);
-		},
-		removeEmployee: (state, action) => {
-			state.list = state.list.filter((employee) => employee.id !== action.payload);
-		},
-		addEmployeeFailure: (state, action) => {
-			state.error = action.payload;
+			state.employeesList.push(action.payload);
+			localStorage.setItem('employees', JSON.stringify(state.employeesList));
 		},
 	},
 });
 
-export const { addEmployee, removeEmployee, addEmployeeFailure } = employeesSlice.actions;
-export default employeesSlice.reducer;
+export const { addEmployee } = employeeSlice.actions;
+
+export default employeeSlice.reducer;
