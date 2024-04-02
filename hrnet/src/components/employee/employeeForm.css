@@ -93,7 +93,7 @@
 
 .error-message {
 	color: #ff0000;
-	margin-bottom: 5px;
+	margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import './dateTimePicker.css';
@@ -11,8 +12,8 @@ const range = (start, end) => {
 	return years;
 };
 
-const DateTimePicker = () => {
-	const [startDate, setStartDate] = useState(new Date());
+const DateTimePicker = ({ selected, onChange }) => {
+	const [startDate, setStartDate] = useState(new Date(selected || Date.now()));
 	const years = range(1924, getYear(new Date()) + 50, 1);
 	const months = [
 		'January',
@@ -31,9 +32,12 @@ const DateTimePicker = () => {
 
 	return (
 		<DatePicker
-			selected={startDate}
-			onChange={(date) => setStartDate(date)}
-			dateFormat='MMMM d, yyyy'
+			selected={selected ? new Date(selected) : null}
+			onChange={(date) => {
+				setStartDate(date);
+				onChange(date);
+			}}
+			dateFormat='MM/dd/yyyy'
 			renderCustomHeader={({
 				date,
 				changeYear,

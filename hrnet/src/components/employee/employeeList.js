@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTable, usePagination, useGlobalFilter, useSortBy } from 'react-table';
 import { Link } from 'react-router-dom';
@@ -6,9 +7,11 @@ import './employeeList.css';
 import SearchBox from '../common/searchBox';
 import Table from '../common/table';
 import Pagination from '../common/pagination';
+// import testEmployees from './testEmployees';
 
 const EmployeeList = () => {
 	const employees = useSelector((state) => state.employee.employeesList);
+	// const [employees, setEmployees] = useState(testEmployees);
 
 	const columns = useMemo(
 		() => [

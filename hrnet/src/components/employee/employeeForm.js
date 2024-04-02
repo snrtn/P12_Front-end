@@ -10,14 +10,15 @@ import { addEmployee } from '../../redux/slice/employeesSlice';
 import InputField from '../common/inputField';
 import SelectField from '../common/selectField';
 import DatePickerField from '../common/datePickerField';
+import { format, parse } from 'date-fns';
 
 const EmployeeForm = () => {
 	const dispatch = useDispatch();
 	const [formData, setFormData] = useState({
 		firstName: '',
 		lastName: '',
-		dateOfBirth: new Date().toISOString(),
-		startDate: new Date().toISOString(),
+		dateOfBirth: '',
+		startDate: '',
 		department: '',
 		street: '',
 		city: '',
@@ -36,6 +37,11 @@ const EmployeeForm = () => {
 		if (!formData.city) newErrors.city = 'City is required';
 		if (!formData.state) newErrors.state = 'State is required';
 		if (!formData.zipCode) newErrors.zipCode = 'Zip Code is required';
+		if (!formData.zipCode || formData.zipCode < 10000 || formData.zipCode > 99999) {
+			newErrors.zipCode = 'Zip Code must be between 10000 and 99999';
+		}
+		if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of Birth is required';
+		if (!formData.startDate) newErrors.startDate = 'Start Date is required';
 
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
@@ -50,7 +56,8 @@ const EmployeeForm = () => {
 	};
 
 	const handleDateChange = (name, date) => {
-		setFormData({ ...formData, [name]: date.toISOString() });
+		const formattedDate = format(date, 'MM/dd/yyyy');
+		setFormData({ ...formData, [name]: formattedDate });
 	};
 
 	const handleSelectChange = (name, selectedOption) => {
@@ -67,8 +74,8 @@ const EmployeeForm = () => {
 		setFormData({
 			firstName: '',
 			lastName: '',
-			dateOfBirth: formData.dateOfBirth,
-			startDate: formData.startDate,
+			dateOfBirth: '',
+			startDate: '',
 			department: '',
 			street: '',
 			city: '',
@@ -104,14 +111,16 @@ const EmployeeForm = () => {
 				<DatePickerField
 					id='dateOfBirth'
 					label='Date of Birth'
-					selected={formData.dateOfBirth}
+					selected={formData.dateOfBirth ? parse(formData.dateOfBirth, 'MM/dd/yyyy', new Date()) : null}
 					onChange={(date) => handleDateChange('dateOfBirth', date)}
+					error={errors.dateOfBirth}
 				/>
 				<DatePickerField
 					id='startDate'
 					label='Start Date'
-					selected={formData.startDate}
+					selected={formData.startDate ? parse(formData.startDate, 'MM/dd/yyyy', new Date()) : null}
 					onChange={(date) => handleDateChange('startDate', date)}
+					error={errors.startDate}
 				/>
 				<div className='address-group'>
 					<p className='form-section-title'>Address</p>

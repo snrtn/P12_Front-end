@@ -21,7 +21,7 @@ const SelectField = ({ id, label, value, options, onChange, error }) => {
 				onChange={onChange}
 				options={options}
 				className='form-select'
-				styles={customStyles} // 에러 스타일 적용
+				styles={customStyles}
 			/>
 			{error && <div className='error-message'>{error}</div>}
 		</div>
