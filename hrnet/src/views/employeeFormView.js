@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Modal from 'simple-library-modal-ocr-snrtn';
-import { states } from '../../utils/states';
-import { departments } from '../../utils/departments';
-import './employeeForm.css';
+import { states } from '../utils/states';
+import { departments } from '../utils/departments';
+import './employeeFormView.styles.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import { addEmployee } from '../../redux/slice/employeesSlice';
-import InputField from '../common/inputField';
-import SelectField from '../common/selectField';
-import DatePickerField from '../common/datePickerField';
+import { addEmployee } from '../redux/slice/employeesSlice';
+import InputField from '../components/form/inputField';
+import SelectField from '../components/form/selectField';
+import DatePickerField from '../components/form/datePickerField';
 import { format, parse } from 'date-fns';
 
 const EmployeeForm = () => {
@@ -32,7 +32,8 @@ const EmployeeForm = () => {
 		const newErrors = {};
 		if (!formData.firstName) newErrors.firstName = 'First Name is required';
 		if (!formData.lastName) newErrors.lastName = 'Last Name is required';
-		if (!formData.department) newErrors.department = 'Department is required';
+		if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of Birth is required';
+		if (!formData.startDate) newErrors.startDate = 'Start Date is required';
 		if (!formData.street) newErrors.street = 'Street is required';
 		if (!formData.city) newErrors.city = 'City is required';
 		if (!formData.state) newErrors.state = 'State is required';
@@ -40,8 +41,7 @@ const EmployeeForm = () => {
 		if (!formData.zipCode || formData.zipCode < 10000 || formData.zipCode > 99999) {
 			newErrors.zipCode = 'Zip Code must be between 10000 and 99999';
 		}
-		if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of Birth is required';
-		if (!formData.startDate) newErrors.startDate = 'Start Date is required';
+		if (!formData.department) newErrors.department = 'Department is required';
 
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;

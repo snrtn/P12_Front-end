@@ -1,6 +1,6 @@
 import React from 'react';
-import EmployeeForm from './components/employee/employeeForm';
-import EmployeeList from './components/employee/employeeList';
+import EmployeeForm from './views/employeeFormView';
+import EmployeeList from './views/employeeListView';
 import NotFoundPage from './components/common/notFoundPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 

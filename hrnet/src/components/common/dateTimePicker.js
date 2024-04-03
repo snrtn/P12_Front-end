@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import './dateTimePicker.css';
+import './dateTimePicker.styles.css';
 import { getYear, getMonth } from 'date-fns';
 
 const range = (start, end) => {

@@ -3,11 +3,11 @@ import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTable, usePagination, useGlobalFilter, useSortBy } from 'react-table';
 import { Link } from 'react-router-dom';
-import './employeeList.css';
-import SearchBox from '../common/searchBox';
-import Table from '../common/table';
-import Pagination from '../common/pagination';
-// import testEmployees from './testEmployees';
+import './employeeListView.styles.css';
+import SearchBox from '../components/list/searchBox';
+import Table from '../components/list/table';
+import Pagination from '../components/list/pagination';
+// import testEmployees from '../../utils/testEmployees';ㄴ
 
 const EmployeeList = () => {
 	const employees = useSelector((state) => state.employee.employeesList);
