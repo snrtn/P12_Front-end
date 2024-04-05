@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+## HRnet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+HRnet est une application web basée sur React conçue pour gérer efficacement les informations des employés. Elle permet aux utilisateurs d'ajouter de nouveaux enregistrements d'employés, de consulter une liste d'employés et de naviguer dans l'application à l'aide du routage. Le projet tire parti de l'écosystème React, y compris Redux pour la gestion de l'état, react-router-dom pour le routage, et diverses autres bibliothèques pour améliorer l'UI et la fonctionnalité.
 
-## Available Scripts
+### Fonctionnalités
 
-In the project directory, you can run:
+`Ajouter un employé` : Les utilisateurs peuvent créer de nouveaux enregistrements d'employés à travers une interface de formulaire, capturant des détails tels que le nom, le département et la date de début.
+`Voir les employés` : Une vue en liste affiche tous les employés, avec des fonctionnalités pour trier, filtrer et paginer à travers les enregistrements.
+`Validation de formulaire` : L'application valide les entrées de formulaire avant la soumission pour garantir l'intégrité des données.
+`Navigation` : Les utilisateurs peuvent naviguer entre la vue de formulaire et la vue de liste des employés en utilisant React Router.
+`Persistance` : Les données des employés sont persistées dans le localStorage du navigateur pour simplifier.
 
-### `npm start`
+### Structure du projet
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`src/components/` : Contient des composants UI réutilisables comme les champs de saisie, les champs de sélection, et les sélecteurs de date.
+`src/redux/` : Comprend des slices Redux toolkit pour la gestion de l'état.
+`src/views/` : Abrite les principales vues/pages de l'application, telles que le formulaire d'employé et les vues de liste d'employés.
+`App.js` : Le composant racine qui configure le routage pour l'application.
+`index.js` : Le point d'entrée de l'application React qui rend le composant App.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Dépendances
 
-### `npm test`
+`React`
+`Redux Toolkit`
+`React Router DOM`
+`React Table`
+`React DatePicker`
+`React Select`
+`Simple Library Modal (pour les dialogues modaux)`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### employeeFormView.js
 
-### `npm run build`
+Ce composant est un formulaire pour ajouter de nouveaux employés. Il valide les entrées utilisateur, gère la soumission du formulaire, et affiche un modal lors de la soumission réussie. Il utilise des composants d'entrée personnalisés comme InputField et SelectField pour les champs de formulaire, et DatePickerField pour la sélection de date.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### employeeListView.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Affiche une liste d'employés en utilisant les données récupérées du store Redux. Il s'intègre avec react-table pour les fonctionnalités de tri, filtrage et pagination. Des composants comme SearchBox, Table et Pagination sont utilisés ici pour fournir une vue complète des données des employés.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### employeesSlice.js
 
-### `npm run eject`
+Définit le slice Redux pour les employés. Il gère l'état de l'application lié aux employés, y compris l'ajout de nouveaux enregistrements d'employés à l'état et leur persistance dans localStorage.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### InputField.js et SelectField.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Composants de formulaire réutilisables pour les champs de saisie et de sélection, respectivement. Ils affichent des étiquettes, le contrôle de formulaire réel (entrée ou sélection) et les messages d'erreur de validation.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### SearchBox.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Un composant qui offre une fonctionnalité de recherche et la capacité d'ajuster le nombre de lignes de table affichées. Il interagit avec l'état de filtre global et la taille de page de react-table.
 
-## Learn More
+### Table.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Rend un tableau d'employés avec des fonctionnalités comme des indicateurs de tri. Il repose sur la bibliothèque react-table pour son implémentation, en utilisant les hooks fournis par la bibliothèque pour gérer l'état et le comportement du tableau.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pagination.js
 
-### Code Splitting
+Un composant qui fournit des contrôles de pagination pour naviguer à travers les pages d'employés dans le tableau. Il affiche la page actuelle, le total des entrées et permet à l'utilisateur de passer à la page suivante ou précédente.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### datePickerField.js et dateTimePicker.js
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+datePickerField.js enveloppe le composant DateTimePicker, fournissant un champ de sélecteur de date stylisé, y compris une étiquette et des messages d'erreur. dateTimePicker.js est une implémentation personnalisée de sélecteur de date utilisant react-datepicker.

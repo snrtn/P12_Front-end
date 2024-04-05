@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTable, usePagination, useGlobalFilter, useSortBy } from 'react-table';
@@ -7,12 +6,18 @@ import './employeeListView.styles.css';
 import SearchBox from '../components/list/searchBox';
 import Table from '../components/list/table';
 import Pagination from '../components/list/pagination';
-// import testEmployees from '../../utils/testEmployees';ㄴ
+
+// les données des employés de test
+// import testEmployees from '../../utils/testEmployees';
 
 const EmployeeList = () => {
+	// Accès à la liste des employés depuis le store Redux.
 	const employees = useSelector((state) => state.employee.employeesList);
+
+	// les données des employés de test
 	// const [employees, setEmployees] = useState(testEmployees);
 
+	// Utilisation du hook useMemo pour mémoriser la définition des colonnes, évitant ainsi des recalculs inutiles lors des rendus du composant.
 	const columns = useMemo(
 		() => [
 			{ Header: 'First Name', accessor: 'firstName' },
