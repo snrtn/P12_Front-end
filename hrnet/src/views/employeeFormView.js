@@ -43,7 +43,9 @@ const EmployeeForm = () => {
 		}
 		if (!formData.department) newErrors.department = 'Department is required';
 
+		// Met à jour l'état des erreurs avec les nouvelles erreurs.
 		setErrors(newErrors);
+		// Retourne true si aucune erreur n'est trouvée, false autrement.
 		return Object.keys(newErrors).length === 0;
 	};
 
